@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @feed.name %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @feed.url %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @feed.type %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @feed.active %>
+</p>
+
+<p>
+  <b>In stream:</b>
+  <%=h @feed.in_stream %>
+</p>
+
+
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
