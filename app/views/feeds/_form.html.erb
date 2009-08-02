@@ -1,0 +1,26 @@
+<ol>
+  <% unless @feed.new_record? %>
+  <li>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </li>
+  <% end %>
+  <li>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </li>
+  <% unless @feed.new_record? %>
+  <li>
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+  </li>
+  <li>
+    <%= f.label :active %>
+    <%= f.check_box :active %>
+  </li>
+  <% end %>
+  <li>
+    <%= f.label :in_stream %>
+    <%= f.check_box :in_stream %>
+  </li>
+</ol>
