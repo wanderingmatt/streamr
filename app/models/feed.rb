@@ -2,6 +2,8 @@ class Feed < ActiveRecord::Base
 
   require 'nokogiri'
   require 'open-uri'
+  
+  has_many :items
 
   validates_presence_of :name, :url
 

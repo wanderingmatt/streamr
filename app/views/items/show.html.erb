@@ -1,0 +1,38 @@
+<p>
+  <b>Feed:</b>
+  <%=h @item.feed_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @item.title %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @item.url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @item.description %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%=h @item.tags %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%=h @item.published %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%=h @item.source %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
