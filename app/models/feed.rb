@@ -23,9 +23,9 @@ class Feed < ActiveRecord::Base
     feeds = self.active
 
     feeds.each do |feed|
-      parsed_feed = Nokogiri::XML(open(feed.url))
+      doc = Nokogiri::XML(open(feed.url))
 
-      parsed_feed.css('item').each do |item|
+      doc.css('item').each do |item|
         hash = Digest::SHA1.hexdigest(item)
         feed.items.create(:source => item.to_xml, :salt => hash)
       end
