@@ -27,7 +27,7 @@ class Feed < ActiveRecord::Base
 
       parsed_feed.css('item').each do |item|
         hash = Digest::SHA1.hexdigest(item)
-        Item.create(:source => item.to_xml, :salt => hash)
+        feed.items.create(:source => item.to_xml, :salt => hash)
       end
     end
   end
