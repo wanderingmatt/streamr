@@ -3,7 +3,7 @@
 <ol>
 <%- @items.each do |item| -%>
   <% item.pretty %>
-  <li class="<%= item.class %>">
+  <li class="<%= item.type %>">
     <h2><%= item.title %></h2>
     <a href="<%= item.permalink %>"><%= item.date %></a>
   </li>

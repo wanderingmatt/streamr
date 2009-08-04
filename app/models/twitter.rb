@@ -1,20 +1,13 @@
 class Twitter
   def parse! item
-    @doc = Nokogiri::XML.parse(item.source)
-    item.title = title
-    item.date = date
-    item.permalink = link
+    item.type = self.class
+    @doc = Nokogiri::XML.parse item.source
+    item.title = get_node 'title'
+    item.date = get_node 'pubDate'
+    item.permalink = get_node 'link'
   end
 
-  def title
-    @doc.css('title').text
-  end
-
-  def date
-    @doc.css('pubDate').text
-  end
-
-  def link
-    @doc.css('link').text
+  def get_node node
+    @doc.css(node).text
   end
 end
