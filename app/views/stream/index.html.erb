@@ -1,7 +1,11 @@
 <h1>Lifestream</h1>
 
 <ol>
-  <% @items.each do |item| %>
-    <li><%= item.pretty %></li>
-  <% end %>
+<%- @items.each do |item| -%>
+  <% item.pretty %>
+  <li class="<%= item.class %>">
+    <h2><%= item.title %></h2>
+    <a href="<%= item.permalink %>"><%= item.date %></a>
+  </li>
+<%- end -%>
 </ol>
