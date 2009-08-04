@@ -27,7 +27,10 @@ class Feed < ActiveRecord::Base
 
       doc.css('item').each do |item|
         hash = Digest::SHA1.hexdigest item
-        feed.items.create :source => item.to_xml, :salt => hash
+
+        unless Item.find_by_salt hash
+          feed.items.create :source => item.to_xml, :salt => hash
+        end
       end
     end
   end
