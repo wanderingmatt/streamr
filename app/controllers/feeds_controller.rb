@@ -84,7 +84,6 @@ class FeedsController < ApplicationController
   end
 
   def refresh
-    @feeds = Feed.all
-    @items = Feed.refresh @feeds
+    @items = Feed.refresh
   end
 end

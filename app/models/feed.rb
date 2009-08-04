@@ -8,18 +8,23 @@ class Feed < ActiveRecord::Base
   validates_presence_of :name, :url
 
   before_validation_on_create :set_name
-
+  
+  named_scope :active, :conditions => { :active => true }
+  
   def set_name
     doc = Nokogiri::XML(open(self.url))
     self.name = doc.css('title').first.text
   end
+  
+    
 
   private
 
-  def self.refresh collection
+  def self.refresh
+    feeds = self.active
     @items = []
 
-    collection.each do |feed|
+    feeds.each do |feed|
       parsed_feed = Nokogiri::XML(open(feed.url))
       parsed_feed.css('item').each do |item|
         @items << item
