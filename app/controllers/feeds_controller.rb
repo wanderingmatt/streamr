@@ -82,4 +82,9 @@ class FeedsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def refresh
+    @feeds = Feed.all
+    @items = Feed.refresh @feeds
+  end
 end
