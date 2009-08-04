@@ -3,23 +3,15 @@
 <table>
   <tr>
     <th>Feed</th>
-    <th>Title</th>
-    <th>Url</th>
-    <th>Description</th>
-    <th>Tags</th>
-    <th>Published</th>
     <th>Source</th>
+    <th>Salt</th>
   </tr>
 
 <% @items.each do |item| %>
   <tr>
     <td><%=h item.feed_id %></td>
-    <td><%=h item.title %></td>
-    <td><%=h item.url %></td>
-    <td><%=h item.description %></td>
-    <td><%=h item.tags %></td>
-    <td><%=h item.published %></td>
     <td><%=h item.source %></td>
+    <td><%=h item.salt %></td>
     <td><%= link_to 'Show', item %></td>
     <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>

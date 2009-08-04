@@ -1,7 +1,16 @@
 class Item < ActiveRecord::Base
   belongs_to :feed
-  
-  def initialize item
-    
+
+  attr_accessor :title
+
+  def pretty
+    determine_type.parse! self
+  end
+
+  def determine_type
+    case self.feed.url
+    when /twitter/
+      Twitter.new
+    end
   end
 end
