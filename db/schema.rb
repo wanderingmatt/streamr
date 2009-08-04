@@ -23,12 +23,9 @@ ActiveRecord::Schema.define(:version => 20090802024353) do
 
   create_table "items", :force => true do |t|
     t.integer  "feed_id"
-    t.string   "title"
-    t.string   "url"
-    t.text     "description"
-    t.string   "tags"
-    t.boolean  "published",   :default => true
     t.text     "source"
+    t.string   "hash"
+    t.boolean  "published",  :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

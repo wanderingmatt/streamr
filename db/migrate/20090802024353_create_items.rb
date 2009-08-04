@@ -2,12 +2,9 @@ class CreateItems < ActiveRecord::Migration
   def self.up
     create_table :items do |t|
       t.integer :feed_id
-      t.string :title
-      t.string :url
-      t.text :description
-      t.string :tags
-      t.boolean :published, :default => true
       t.text :source
+      t.string :hash
+      t.boolean :published, :default => true
 
       t.timestamps
     end
