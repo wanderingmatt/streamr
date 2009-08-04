@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.integer :feed_id
       t.text :source
-      t.string :hash
+      t.string :salt
       t.boolean :published, :default => true
 
       t.timestamps

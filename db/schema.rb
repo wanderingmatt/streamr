@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20090802024353) do
   create_table "items", :force => true do |t|
     t.integer  "feed_id"
     t.text     "source"
-    t.string   "hash"
+    t.string   "salt"
     t.boolean  "published",  :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
