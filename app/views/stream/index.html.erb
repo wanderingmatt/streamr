@@ -4,8 +4,7 @@
 <%- @items.each do |item| -%>
   <% item.pretty %>
   <li class="<%= item.type %>">
-    <h2><%= item.title %></h2>
-    <a href="<%= item.permalink %>"><%= item.date %></a>
+    <%= render :partial => item.type, :locals => { :item => item } %>
   </li>
 <%- end -%>
 </ol>

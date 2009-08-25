@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :feed
 
-  attr_accessor :type, :title, :date, :permalink
+  attr_accessor :type, :title, :date, :permalink, :content
 
   def pretty
     determine_type.parse! self
