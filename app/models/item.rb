@@ -11,6 +11,8 @@ class Item < ActiveRecord::Base
     case self.feed.url
     when /twitter/
       Twitter.new
+    when /flickr/
+      Flickr.new
     end
   end
 end
