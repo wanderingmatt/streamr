@@ -5,7 +5,8 @@ class Flickr
     item.title = get_node 'title'
     item.date = get_node 'pubDate'
     item.permalink = get_node 'link'
-  end
+    item.content = @doc.at('content')['url']
+end
 
   def get_node node
     @doc.css(node).text
