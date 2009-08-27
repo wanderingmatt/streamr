@@ -13,6 +13,8 @@ class Item < ActiveRecord::Base
       Twitter.new
     when /flickr/
       Flickr.new
+    else
+      Rss.new
     end
   end
 end
