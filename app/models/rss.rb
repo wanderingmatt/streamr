@@ -8,6 +8,6 @@ class Rss
   end
 
   def get_node node
-    @doc.css(node).text
+    @doc.css(node).first.text
   end
 end

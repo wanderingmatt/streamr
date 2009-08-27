@@ -13,6 +13,8 @@ class Item < ActiveRecord::Base
       Twitter.new
     when /flickr/
       Flickr.new
+    when /vimeo/
+      Vimeo.new
     else
       Rss.new
     end
