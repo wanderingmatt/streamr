@@ -17,6 +17,11 @@ class Feed < ActiveRecord::Base
     self.name = doc.css('title').first.text
   end
 
+  def self.get_format doc
+    'item' if doc/'channel'
+    'entry' if doc/'feed'
+  end
+
   private
 
   def self.refresh
@@ -25,7 +30,7 @@ class Feed < ActiveRecord::Base
     feeds.each do |feed|
       doc = Nokogiri::XML(open(feed.url))
 
-      doc.css('item').each do |item|
+      doc.css(get_format(doc)).each do |item|
         hash = Digest::SHA1.hexdigest item
 
         unless Item.find_by_salt hash
