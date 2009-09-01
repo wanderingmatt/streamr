@@ -15,6 +15,8 @@ class Item < ActiveRecord::Base
       Flickr.new
     when /vimeo/
       Vimeo.new
+    when /youtube/
+      Youtube.new
     else
       Rss.new
     end
