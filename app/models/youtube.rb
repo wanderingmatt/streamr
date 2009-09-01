@@ -5,7 +5,7 @@ class Youtube
     item.title = get_node 'title'
     item.date = get_node 'published'
     item.permalink = @doc.at('link')['href']
-    item.permalink =~ /\?v=(\w+)/
+    item.permalink =~ /\?v=(.+)/
     item.content = $1
 end
 
